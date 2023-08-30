@@ -1,0 +1,30 @@
+{
+  "name": "kayckmatias/z-filters",
+  "description": "a simple way to dynamically filter your Laravel models",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Kayckmatias\\ZFilters\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Kayck Matias",
+      "email": "kayckmatias04@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Kayckmatias\\ZFilters\\FiltersProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

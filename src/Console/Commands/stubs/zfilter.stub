@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Filters;
+
+use Kayckmatias\ZFilter\FilterBuilder;
+use Kayckmatias\ZFilter\FilterContract;
+
+class {{CLASS_NAME}} extends FilterBuilder implements FilterContract
+{
+    public function apply()
+    {
+        $filters = $this->getAvailableFilters();
+
+        return $this->filtersMake($filters['simple'], $filters['complex']);
+    }
+
+    public function getAvailableFilters()
+    {
+        return [...$this->getSimpleFilters(), ...$this->getComplexFilters()];
+    }
+
+    public function getSimpleFilters()
+    {
+        return [
+            'simple' => [
+                // Define the simple filters here, example: ['categories' => 'category_id']
+            ]
+        ];
+    }
+
+    public function getComplexFilters()
+    {
+        return [
+            'complex' => [
+                /* Define the complex filters here, example:
+                'search' => function ($q, $filterValue) {
+                    $q->where(function ($q) use ($filterValue) {
+                        $q->where('title', 'LIKE', "%" . $filterValue . "%");
+                        $q->orWhere('desc', 'LIKE', "%" . $filterValue . "%");
+                    });
+                }, */
+            ]
+        ];
+    }
+}
