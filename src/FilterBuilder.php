@@ -20,7 +20,7 @@ class FilterBuilder
         [$simple, $relation, $complex] = $filters;
 
         foreach ($this->filters as $key => $value) {
-            if ($this->checkValueIsInvalid($value)) {
+            if ($this->checkIfValueIsInvalid($value)) {
                 continue;
             }
 
@@ -53,7 +53,7 @@ class FilterBuilder
      * @param mixed $value The value to check.
      * @return bool Returns true if the value is invalid, false otherwise.
      */
-    private function checkValueIsInvalid(mixed $value): bool
+    private function checkIfValueIsInvalid(mixed $value): bool
     {
         return (is_null($value) || $value === "");
     }
