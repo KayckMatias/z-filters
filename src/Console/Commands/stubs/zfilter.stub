@@ -4,6 +4,7 @@ namespace App\Filters;
 
 use Kayckmatias\ZFilter\FilterBuilder;
 use Kayckmatias\ZFilter\FilterContract;
+use Illuminate\Database\Eloquent\Builder;
 
 class {{CLASS_NAME}} extends FilterBuilder implements FilterContract
 {
@@ -12,7 +13,7 @@ class {{CLASS_NAME}} extends FilterBuilder implements FilterContract
      *
      * @return array The filtered result.
      */
-    public function apply(): void
+    public function apply(): Builder
     {
         $filters = $this->getAvailableFilters();
 

@@ -3,7 +3,6 @@
 namespace Kayckmatias\ZFilters;
 
 use Illuminate\Database\Eloquent\Builder;
-
 class FilterBuilder
 {
     protected $query;
