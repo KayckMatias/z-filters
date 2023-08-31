@@ -37,7 +37,7 @@ public function scopeFilterBy(Builder $query, array $filters)
 ```
 
 ## Configure
-zFilters supports two filters type, simple and complex.
+zFilters supports three filters type, simple, relation and complex.
 
 #### Simple Filters:
 Simple Filter is a whereIn condition, when you make a simple filter you is saying.
@@ -52,6 +52,19 @@ Let's assume that your user table has the column "department_id", to make a simp
 ```
 
 Now the array of values or single value you send in $filters['departments'] will be filtered in whereIn condition on the simple filter
+
+#### Relation Filters:
+Relation Filter is a whereIn condition in a relation, when you make a relation filter you is saying.
+```
+['custom_name' => ['relation' => 'column to verify set whereIn']]
+```
+Let's assume that your User model has the relation with department (departments()), to create a relationship filter where we must get all the users that the department belongs to manager 1 or 2 we can do this:
+
+```
+['departments_manager' => ['departments' => 'manager_id']]
+```
+
+Now the array of values or single value you send in $filters['departments_manager'] will be filtered in whereIn condition in departments relation on manager_id column.
 
 #### Complex Filters
 The complex filter can deal with more specific conditions, it accepts a callback function and you can filter however you want, let's go to another example.
