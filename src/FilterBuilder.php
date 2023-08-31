@@ -55,7 +55,7 @@ class FilterBuilder
      */
     private function checkValueIsInvalid(mixed $value): bool
     {
-        return (!empty($value) || is_bool($value) || is_numeric($value));
+        return (is_null($value) || $value === "");
     }
 
     /**
