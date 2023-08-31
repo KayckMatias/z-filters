@@ -2,8 +2,8 @@
 
 namespace App\Filters;
 
-use Kayckmatias\ZFilter\FilterBuilder;
-use Kayckmatias\ZFilter\FilterContract;
+use Kayckmatias\ZFilters\FilterBuilder;
+use Kayckmatias\ZFilters\FilterContract;
 use Illuminate\Database\Eloquent\Builder;
 
 class {{CLASS_NAME}} extends FilterBuilder implements FilterContract
@@ -17,7 +17,7 @@ class {{CLASS_NAME}} extends FilterBuilder implements FilterContract
     {
         $filters = $this->getAvailableFilters();
 
-        return $this->filtersMake($filters['simple'], $filters['complex']);
+        return $this->filtersMake($filters);
     }
 
     /**
