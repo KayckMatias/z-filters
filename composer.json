@@ -24,7 +24,5 @@
         "Kayckmatias\\ZFilters\\FiltersProvider"
       ]
     }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  }
 }
