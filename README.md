@@ -42,13 +42,13 @@ zFilters supports three filters type, simple, relation and complex.
 #### Simple Filters:
 Simple Filter is a whereIn condition, when you make a simple filter you is saying.
 ```php
-['custom_name' => 'column to verify set whereIn']
+'custom_name' => 'column to verify set whereIn'
 ```
 Let's assume that your user table has the column "department_id", to make a simple filter you just need to reference how the name of the filter option will be, let's call it "departments" and the column, which would be
 "department_id"
 
 ```php
-['departaments' => 'departament_id']
+'departaments' => 'departament_id'
 ```
 
 Now the array of values or single value you send in $filters['departments'] will be filtered in whereIn condition on the simple filter
@@ -56,12 +56,12 @@ Now the array of values or single value you send in $filters['departments'] will
 #### Relation Filters:
 Relation Filter is a whereIn condition in a relation, when you make a relation filter you is saying.
 ```php
-['custom_name' => ['relation' => 'column to verify set whereIn']]
+'custom_name' => ['relation' => 'column to verify set whereIn']
 ```
 Let's assume that your User model has the relation with department (departments()), to create a relationship filter where we must get all the users that the department belongs to manager 1 or 2 we can do this:
 
 ```php
-['departments_manager' => ['departments' => 'manager_id']]
+'departments_manager' => ['departments' => 'manager_id']
 ```
 
 Now the array of values or single value you send in $filters['departments_manager'] will be filtered in whereIn condition in departments relation on manager_id column.
