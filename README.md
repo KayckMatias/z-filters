@@ -1,6 +1,9 @@
 # zFilters
 
 ##### a simple package to filter your Laravel models without repetitive loops or various if-else
+[![Version](http://poser.pugx.org/kayckmatias/z-filters/version)](https://packagist.org/packages/kayckmatias/z-filters)
+[![Total Downloads](http://poser.pugx.org/kayckmatias/z-filters/downloads)](https://packagist.org/packages/kayckmatias/z-filters)
+[![License](http://poser.pugx.org/kayckmatias/z-filters/license)](https://packagist.org/packages/kayckmatias/z-filters)
 
 ## Installation
 
