@@ -7,39 +7,71 @@ use Kayckmatias\ZFilter\FilterContract;
 
 class {{CLASS_NAME}} extends FilterBuilder implements FilterContract
 {
-    public function apply()
+    /**
+     * Apply the available filters and return the result.
+     *
+     * @return array The filtered result.
+     */
+    public function apply(): void
     {
         $filters = $this->getAvailableFilters();
 
         return $this->filtersMake($filters['simple'], $filters['complex']);
     }
 
-    public function getAvailableFilters()
+    /**
+     * Get the available filters.
+     *
+     * @return array
+     */
+    public function getAvailableFilters(): array
     {
-        return [...$this->getSimpleFilters(), ...$this->getComplexFilters()];
+        $simpleFilters = $this->getSimpleFilters();
+        $relationFilters = $this->getRelationFilters();
+        $complexFilters = $this->getComplexFilters();
+
+        return [$simpleFilters, $relationFilters, $complexFilters];
     }
 
-    public function getSimpleFilters()
+    /**
+     * Returns the simple filters.
+     *
+     * @return array The list of simple filters.
+     */
+    public function getSimpleFilters(): array
     {
         return [
-            'simple' => [
-                // Define the simple filters here, example: ['categories' => 'category_id']
-            ]
+            // Define the simple filters here, example: ['categories' => 'category_id']
         ];
     }
 
-    public function getComplexFilters()
+    /**
+     * Get the relation filters.
+     *
+     * @return array The relation filters
+     */
+    public function getRelationFilters(): array
     {
         return [
-            'complex' => [
-                /* Define the complex filters here, example:
-                'search' => function ($q, $filterValue) {
-                    $q->where(function ($q) use ($filterValue) {
-                        $q->where('title', 'LIKE', "%" . $filterValue . "%");
-                        $q->orWhere('desc', 'LIKE', "%" . $filterValue . "%");
-                    });
-                }, */
-            ]
+            // Define the relation filters here, example: ['setor' => ['setores' => 'id']]
+        ];
+    }
+
+    /**
+     * Retrieves the complex filters.
+     *
+     * @return array The complex filters.
+     */
+    public function getComplexFilters(): array
+    {
+        return [
+            /* Define the complex filters here, example:
+            'search' => function ($q, $filterValue) {
+                $q->where(function ($q) use ($filterValue) {
+                    $q->where('title', 'LIKE', "%" . $filterValue . "%");
+                    $q->orWhere('desc', 'LIKE', "%" . $filterValue . "%");
+                });
+            }, */
         ];
     }
 }
