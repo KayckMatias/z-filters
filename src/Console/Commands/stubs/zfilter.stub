@@ -42,7 +42,8 @@ class {{CLASS_NAME}} extends FilterBuilder implements FilterContract
     public function getSimpleFilters(): array
     {
         return [
-            // Define the simple filters here, example: ['categories' => 'category_id']
+            // Define the simple filters here, example: 
+            // 'categories' => 'category_id'
         ];
     }
 
@@ -54,7 +55,8 @@ class {{CLASS_NAME}} extends FilterBuilder implements FilterContract
     public function getRelationFilters(): array
     {
         return [
-            // Define the relation filters here, example: ['setor' => ['setores' => 'id']]
+            // Define the relation filters here, example:
+            // 'departments_manager' => ['departaments' => 'manager_id']
         ];
     }
 
