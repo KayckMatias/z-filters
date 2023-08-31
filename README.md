@@ -14,7 +14,7 @@ composer require kayckmatias/z-filters
 ```
 
 ## Usage
-To use is very simple, you need only to things: make a new filter and create a scope in your model to point filter.
+You just need two things: make a new filter and create a scope in your model to point filter.
 
 To make a new Filter:
 
@@ -40,7 +40,7 @@ public function scopeFilterBy(Builder $query, array $filters)
 ```
 
 ## Configure
-zFilters supports three filters type, simple, relation and complex.
+zFilters supports three filters type: simple, relation and complex.
 
 #### Simple Filters:
 Simple Filter is a whereIn condition, when you make a simple filter you is saying.
