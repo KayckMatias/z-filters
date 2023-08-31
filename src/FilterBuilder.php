@@ -3,6 +3,7 @@
 namespace Kayckmatias\ZFilters;
 
 use Illuminate\Database\Eloquent\Builder;
+
 class FilterBuilder
 {
     protected $query;
@@ -19,7 +20,7 @@ class FilterBuilder
         [$simple, $relation, $complex] = $filters;
 
         foreach ($this->filters as $key => $value) {
-            if (!$value) {
+            if ($this->checkValueIsInvalid($value)) {
                 continue;
             }
 
@@ -46,11 +47,38 @@ class FilterBuilder
         return $this->query;
     }
 
-    private function formatSimpleValue($value){
+    /**
+     * Check if a value is invalid.
+     *
+     * @param mixed $value The value to check.
+     * @return bool Returns true if the value is invalid, false otherwise.
+     */
+    private function checkValueIsInvalid(mixed $value): bool
+    {
+        return (!empty($value) || is_bool($value) || is_numeric($value));
+    }
+
+    /**
+     * Formats a simple value.
+     *
+     * @param mixed $value The value to format.
+     * @return array The formatted value.
+     */
+    private function formatSimpleValue(mixed $value): array
+    {
         return is_array($value) ? $value : [$value];
     }
 
-    private function checkFilterAvailable($key, $filters){
+    /**
+     * Check if a given key is available in the filters array.
+     *
+     * @param string $key The key to check.
+     * @param array $filters The filters array.
+     * 
+     * @return bool True if the key is available, false otherwise.
+     */
+    private function checkFilterAvailable(string $key, array $filters): bool
+    {
         return in_array($key, array_keys($filters));
     }
 }
